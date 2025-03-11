@@ -3,6 +3,5 @@
 *.json
 *.o
 .vscode*
-xsm
 lex.yy.c
 mem

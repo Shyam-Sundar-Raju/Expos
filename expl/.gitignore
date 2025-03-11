@@ -5,7 +5,6 @@ ltranslate.lex.c
 y.tab.c
 y.tab.h
 *~
-*.xsm
 *.temp
 *.o
 expl_progs/
