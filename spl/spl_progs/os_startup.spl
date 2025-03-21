@@ -8,6 +8,8 @@ loadi(2, 15);
 loadi(3, 16);
 loadi(4, 17);
 loadi(5, 18);
+loadi(16,29);
+loadi(17,30);
 PTBR = PAGE_TABLE_BASE;
 //Library
 [PTBR+0] = 63;
