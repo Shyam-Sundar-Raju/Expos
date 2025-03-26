@@ -1,7 +1,7 @@
 load --int=10 $HOME/Desktop/Expos/spl/spl_progs/haltprog.xsm
 load --exhandler $HOME/Desktop/Expos/spl/spl_progs/haltprog.xsm
 load --library $HOME/Desktop/Expos/expl/library.lib
-load --init $HOME/Desktop/Expos/expl/expl_progs/user_prog.xexe
 load --int=timer $HOME/Desktop/Expos/spl/spl_progs/sample_timer.xsm
+load --init $HOME/Desktop/Expos/expl/expl_progs/user_prog.xexe
 load --int=7 $HOME/Desktop/Expos/spl/spl_progs/sample_int7.xsm
 load --os $HOME/Desktop/Expos/spl/spl_progs/os_startup.xsm
