@@ -7,8 +7,16 @@ loadi(63, 13);
 loadi(64, 14);
 
 // load module 5 (scheduler) from disk 63-64 to memory 50-51
-loadi(50,63);
-loadi(51,64);
+loadi(50, 63);
+loadi(51, 64);
+
+// load module 0 (device manager) from disk 53-54 to memory 40-41
+loadi(40, 53);
+loadi(41, 54);
+
+// load module 4 (Terminal Write) from disk 61-62 to memory 48-49
+loadi(48, 61);
+loadi(49, 62);
 
 // load init code from disk 7-8 to memory 65-66
 loadi(65, 7);
@@ -123,5 +131,7 @@ while (i < 16) do
     [PROCESS_TABLE + i * 16 + 4] = TERMINATED;
     i = i + 1;
 endwhile;
+
+[TERMINAL_STATUS_TABLE] = 0;
 
 return;
