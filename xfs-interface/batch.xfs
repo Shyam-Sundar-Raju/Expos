@@ -1,8 +1,18 @@
-load --int=10 $HOME/Desktop/Expos/spl/spl_progs/haltprog.xsm
 load --exhandler $HOME/Desktop/Expos/spl/spl_progs/haltprog.xsm
 load --library $HOME/Desktop/Expos/expl/library.lib
-load --int=timer $HOME/Desktop/Expos/spl/spl_progs/sample_timer.xsm
+
 load --init $HOME/Desktop/Expos/expl/expl_progs/init.xsm
-load --int=7 $HOME/Desktop/Expos/spl/spl_progs/sample_int7.xsm
+
 load --os $HOME/Desktop/Expos/spl/spl_progs/os_startup.xsm
 load --idle $HOME/Desktop/Expos/expl/samples/idle.xsm
+
+load --module 0 $HOME/Desktop/Expos/spl/spl_progs/module_0.xsm
+load --module 4 $HOME/Desktop/Expos/spl/spl_progs/module_4.xsm
+load --module 5 $HOME/Desktop/Expos/spl/spl_progs/module_5.xsm
+load --module 7 $HOME/Desktop/Expos/spl/spl_progs/module_7.xsm
+
+load --int=6 $HOME/Desktop/Expos/spl/spl_progs/int_6.xsm
+load --int=7 $HOME/Desktop/Expos/spl/spl_progs/int_7.xsm
+load --int=10 $HOME/Desktop/Expos/spl/spl_progs/int_10.xsm
+load --int=console $HOME/Desktop/Expos/spl/spl_progs/console_int.xsm
+load --int=timer $HOME/Desktop/Expos/spl/spl_progs/timer.xsm
