@@ -2,6 +2,32 @@ alias functionNum R1;
 alias currentPID R2;
 alias word R3;
 
+// Disk Load
+if (functionNum == 2) then
+    alias memoryPage R3;
+    alias diskBlock R4;
+    multipush(R1, R2, R3, R4);
+
+    R1 = 3;
+    R2 = currentPID;
+    call MOD_0;
+
+    multipop(R1, R2, R3, R4);
+
+    [DISK_STATUS_TABLE + 1] = 0;
+    [DISK_STATUS_TABLE + 2] = memoryPage;
+    [DISK_STATUS_TABLE + 3] = diskBlock;
+
+    load(memoryPage, diskBlock);
+    
+    [PROCESS_TABLE + currentPID * 16 + 4] = WAIT_DISK;
+
+    call MOD_5;
+
+    return;
+endif;
+
+// Terminal Write
 if (functionNum == 3) then
     multipush(R1, R2, R3);
     functionNum = 8;
@@ -22,6 +48,8 @@ if (functionNum == 3) then
 
     return;
 endif;
+
+// Terminal Read
 if (functionNum == 4) then
     multipush(R1, R2, R3);
     functionNum = 8;

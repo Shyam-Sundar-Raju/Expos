@@ -1,7 +1,21 @@
 alias functionNum R1;
 alias currentPID R2;
 
-if (functionNum == 8) then // Acquire Terminal
+// Acquire Disk
+if (functionNum == 3) then
+    while ([DISK_STATUS_TABLE] == 1) do
+        [PROCESS_TABLE + currentPID * 16 + 4] = WAIT_DISK;
+        multipush(R1, R2);
+        call MOD_5;
+        multipop(R1, R2);
+    endwhile;
+    [DISK_STATUS_TABLE] = 1;
+    [DISK_STATUS_TABLE + 4] = currentPID;
+    return;
+endif;
+
+// Acquire Terminal
+if (functionNum == 8) then
     while ([TERMINAL_STATUS_TABLE] != 0) do
         [PROCESS_TABLE + currentPID * 16 + 4] = WAIT_TERMINAL;
         multipush(R1, R2);
@@ -14,8 +28,10 @@ if (functionNum == 8) then // Acquire Terminal
     [TERMINAL_STATUS_TABLE] = 1;
     [TERMINAL_STATUS_TABLE + 1] = currentPID;
     return;
-else
-if (functionNum == 9) then // Release Terminal
+endif;
+
+// Release Terminal
+if (functionNum == 9) then
     if (currentPID != [TERMINAL_STATUS_TABLE + 1]) then
         alias returnValue R0;
         returnValue = -1;
@@ -38,5 +54,4 @@ else
     alias returnValue R0;
     returnValue = -1;
     return;
-endif;
 endif;
