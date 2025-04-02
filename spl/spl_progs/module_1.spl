@@ -63,5 +63,23 @@ if (functionNumber == 4) then
         i = i + 1;
     endwhile;
 
+    i = 2;
+    while (i < 10) do
+        if ([DISK_MAP_TABLE + currentPID * 10 + i] != -1) then
+            if (i < 4 || i > 7) then
+                multipush(R1, R2, R3, R4);
+
+                R1 = 4;
+                R3 = currentPID;
+                R2 = [DISK_MAP_TABLE + currentPID * 10 + i];
+
+                call MOD_2;
+
+                multipop(R1, R2, R3, R4);
+            endif;
+            [DISK_MAP_TABLE + currentPID * 10 + i] = -1;
+        endif;
+        i = i + 1;
+    endwhile;
     return;
 endif;
